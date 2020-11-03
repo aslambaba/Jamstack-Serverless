@@ -1,5 +1,5 @@
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
-const handler = async (event) => {
+const handler = async (event, context) => {
   try {
     const subject = event.queryStringParameters.name || 'World'
     return {
