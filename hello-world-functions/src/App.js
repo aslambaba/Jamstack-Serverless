@@ -4,22 +4,19 @@ function App() {
 
   const [value, setValue] = useState('');
 
-  useEffect(()=>{
-    fetch('/.netlify/functions/hello?name=from Serverless Function')
-    .then(res=>{
-      res.json();
-    })
-    .then(result=>{
-      console.log(result);
-    })
-    .catch(err=>{
-      throw err;
-    })
+  useEffect(() => {
+
+    async function GetHelloWorldFunctionAPI() {
+      const aa = await fetch('/.netlify/functions/hello?name=from Serverless Function')
+      let aaa = await aa.json();
+      setValue(aaa);
+    }
+    GetHelloWorldFunctionAPI();
   }, [])
 
   return (
     <div className="App">
-      <h2>Hello</h2>
+      <h2>Welcome And  {value.message}</h2>
     </div>
   );
 }
