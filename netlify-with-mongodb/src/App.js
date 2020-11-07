@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React , { useRef } from 'react';
 
 function App() {
+
+  const StudentName = useRef('');
+  function Haa() {
+    alert('aa')
+    console.log(StudentName.current.value);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input placeholder='Enter Student Name: ' ref={StudentName}/>
+        <button onSubmit={Haa()} type='submit' >Submit</button>
       </header>
     </div>
-  );
+  ); 
 }
 
 export default App;
